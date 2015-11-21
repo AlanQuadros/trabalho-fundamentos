@@ -27,19 +27,20 @@ public class Estacionamento {
     }
     
     public String posicaoCarro(String numChassi){
-        String pos = "";
+         String pos = "";
         for (int i = 0; i < estacionamento.length; i++) {
             for (int j = 0; j < estacionamento.length; j++) {
                 if(estacionamento[i][j].getNumChassi().equalsIgnoreCase(numChassi)){
                     pos = "Carro na posição: ["+i+"]["+j+"]";
-                    return pos;
+                } else {
+                     pos = "Carro não encontrado!";
                 }
             }
         }
-        return "Não foi encontrado nenhum carro!";
+        return pos;
     }
     
-    public Carro[] todosCarros(int m){
+    public Carro[] todosCarrosPorModelo(int m){
         Carro [] cs = new Carro[estacionamento.length*estacionamento[0].length];
         int indice = 0;
         for (int i = 0; i < estacionamento.length; i++) {
@@ -60,7 +61,7 @@ public class Estacionamento {
         return cs;
     }
     
-    public double somaCarros(){
+    public double somaValoresCarros(){
         double soma = 0;
         for (int i = 0; i < estacionamento.length; i++) {
             for (int j = 0; j < estacionamento.length; j++) {
